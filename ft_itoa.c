@@ -32,7 +32,7 @@ static int	count(long long int i)
 	return (k);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int				i;
 	long long int	l;

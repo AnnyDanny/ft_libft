@@ -15,8 +15,56 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "libft.h"
+
+void	ft_lstdel(t_list **alst, void(*del)(void*, size_t));
+
+void	vika(void *con, size_t i)
+{
+	i = 0;
+	free(con);
+}
+
+int main(void)
+{
+	t_list *one;
+	one = ft_lstnew("abcd", 5);
+	one->next = ft_lstnew("nbvck", 6);
+	one->next->next = ft_lstnew("gfdsapo", 8);
+	printf("%s\n %s\n %s\n", one->content, one->next->content, one->next->next->content);
+	ft_lstdel(&one, &vika);
+	printf("%s\n", (char *)one);
+	return (0);
+}
 
 
+// void	ft_lstdelone(t_list **alst, void(*del)(void*, size_t));
+
+// void	vika(void *con, size_t i)
+// {
+// 	i = 0;
+// 	free(con);
+// }
+
+// int main(void)
+// {
+// 	t_list *one;
+// 	one = ft_lstnew("abcd", 5);
+// 	printf("%s\n %zu\n", one->content, one->content_size);
+// 	ft_lstdelone(&one, &vika);
+// 	printf("%s\n", (char *)one);
+// 	return (0);
+// }
+
+// t_list	*ft_lstnew(void const *content, size_t content_size);
+
+// int main(void)
+// {
+// 	t_list *one;
+// 	one = ft_lstnew("abcd", 5);
+// 	printf("%s\n %zu\n", one->content, one->content_size);
+// 	return (0);
+// }
 // int	ft_atoi(const char *str);
 
 // int main(void)
@@ -285,22 +333,22 @@
 // 	return (0);
 // }
 
-void	*ft_memmove(void *dest, const void *src, size_t n);
+// void	*ft_memmove(void *dest, const void *src, size_t n);
 
-int main(void)
-{
-	unsigned long src = 0xdeadbeef;
-	int size = sizeof(src);
+// int main(void)
+// {
+// 	unsigned long src = 0xdeadbeef;
+// 	int size = sizeof(src);
 
-	unsigned long dst1;
-	unsigned long dst2;
-	memmove(&dst1, &src, size);
-	ft_memmove(&dst2, &src, size);
-	if (!memcmp(&dst1, &dst2, size))
-		printf("ok");
-	else
-		printf("%lu\n %lu\n %lu\n %d\n", src, dst1, dst2, size);
-}
+// 	unsigned long dst1;
+// 	unsigned long dst2;
+// 	memmove(&dst1, &src, size);
+// 	ft_memmove(&dst2, &src, size);
+// 	if (!memcmp(&dst1, &dst2, size))
+// 		printf("ok");
+// 	else
+// 		printf("%lu\n %lu\n %lu\n %d\n", src, dst1, dst2, size);
+// }
 
 // int	main(void)
 // {
@@ -785,6 +833,20 @@ int main(void)
 
 // char *ft_strnstr(const char *strB, const char *strA, size_t n);
 
+// int main(void)
+// {
+// 	char *s1 = "MZIRIBMZIRIBMZE123";
+// 	char *s2 = "MZIRIBMZE";
+// 	size_t max = strlen(s2);
+// 	char *i1 = strnstr(s1, s2, max);
+// 	char *i2 = ft_strnstr(s1, s2, max);
+
+// 	if (i1 == i2)
+// 		printf("ok");
+// 	else
+// 		printf("%s\n %s\n", i1, i2);
+// }
+
 // void	ft_putchar(char c)
 // {
 // 	write (1, &c, 1);
@@ -805,7 +867,7 @@ int main(void)
 // int	main(int argc, char **argv)
 // {
 // 	(void)argc;
-// 	ft_putstr(ft_strnstr(argv[1], argv[2], 3));
+	// ft_putstr(ft_strnstr(argv[1], argv[2], 3));
 // 	return (0);
 // }
 

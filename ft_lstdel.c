@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdanylov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 17:53:02 by gdanylov          #+#    #+#             */
-/*   Updated: 2017/11/23 17:53:03 by gdanylov         ###   ########.fr       */
+/*   Created: 2017/11/24 17:45:52 by gdanylov          #+#    #+#             */
+/*   Updated: 2017/11/24 17:45:52 by gdanylov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t n)
+void	ft_lstdel(t_list **alst, void(*del)(void*, size_t))
 {
-	size_t i;
+	t_list *buff;
+	t_list *tmp;
 
-	i = 0;
-	if (!big)
-		return ((char *)&big[i]);
-	while (big[i] && i < n)
+	if (alst != NULL && *alst != NULL && del != NULL)
 	{
-		if (ft_strncmp(&big[i], little, ft_strlen(little)) == 0)
-			return ((char *)&big[i]);
-		i++;
+		tmp = *alst;
+		while (tmp != NULL)
+		{
+			buff = tmp->next;
+			ft_lstdelone(&tmp, &(*del));
+			tmp = buff;
+		}
+		*alst = NULL;
 	}
-	return (NULL);
 }
