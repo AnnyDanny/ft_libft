@@ -27,6 +27,6 @@ char	*ft_strncat(char *dest, const char *app, size_t n)
 		i++;
 		j++;
 	}
-		dest[i] = '\0';
+	dest[i] = '\0';
 	return (dest);
 }

@@ -9,3 +9,14 @@
 /*   Updated: 2017/11/24 17:46:10 by gdanylov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_lstadd(t_list **alst, t_list *new)
+{
+	if (alst != NULL && *alst != NULL && new != NULL)
+	{
+		new->next = *alst;
+		*alst = new;
+	}
+}

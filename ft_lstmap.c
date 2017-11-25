@@ -9,3 +9,34 @@
 /*   Updated: 2017/11/24 17:46:59 by gdanylov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+
+static void		ft_delete(void *one, size_t i)
+{
+	i = 0;
+	free(one);
+}
+
+static t_list	*t_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list *buff;
+	t_list *vika;
+
+	if (lst != NULL && f != NULL)
+	{
+		vika = (t_list *)malloc(sizeof(t_list));
+		if (!vika)
+			return (NULL);
+		vika = f(lst);
+		buff = vika;
+		lst = lst->next;
+		while (lst)
+		{
+			vika->next = f(lst);
+			vika = vika->next;
+			lst = lst->next;
+		}
+	}
+	return (buff);
+}

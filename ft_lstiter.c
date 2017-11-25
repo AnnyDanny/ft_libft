@@ -9,3 +9,17 @@
 /*   Updated: 2017/11/24 17:46:40 by gdanylov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+{
+	if (lst != NULL && f != NULL)
+	{
+		while (lst)
+		{
+			f(lst);
+			lst = lst->next;
+		}
+	}
+}

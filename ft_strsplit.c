@@ -43,7 +43,7 @@ static int		ft_countw(char const *str, char c)
 	return (i);
 }
 
-static char	**ft_copy(const char *s, char **m, char c)
+static char		**ft_copy(const char *s, char **m, char c)
 {
 	int		i;
 	int		num;
@@ -70,7 +70,7 @@ static char	**ft_copy(const char *s, char **m, char c)
 	return (m);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**m;
 
