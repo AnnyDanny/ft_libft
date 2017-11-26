@@ -18,7 +18,7 @@ static void		ft_delete(void *one, size_t i)
 	free(one);
 }
 
-static t_list	*t_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list *buff;
 	t_list *vika;
@@ -34,9 +34,15 @@ static t_list	*t_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		while (lst)
 		{
 			vika->next = f(lst);
+			if (!vika->next)
+			{
+				ft_lstdel(&buff, &ft_delete);
+				return (NULL);
+			}
 			vika = vika->next;
 			lst = lst->next;
 		}
+		return (buff);
 	}
-	return (buff);
+	return (NULL);
 }

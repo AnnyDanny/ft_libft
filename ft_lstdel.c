@@ -23,7 +23,7 @@ void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
 		while (tmp != NULL)
 		{
 			buff = tmp->next;
-			ft_lstdelone(&tmp, &(*del));
+			ft_lstdelone(&tmp, del);
 			tmp = buff;
 		}
 		*alst = NULL;

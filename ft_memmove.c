@@ -34,10 +34,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	else
 	{
-		while (i < n)
+		while (n)
 		{
 			*fdest++ = *fsrc++;
-			n++;
+			n--;
 		}
 	}
 	return (dest);
