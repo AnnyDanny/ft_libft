@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdanylov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 20:55:42 by gdanylov          #+#    #+#             */
-/*   Updated: 2017/11/10 20:55:42 by gdanylov         ###   ########.fr       */
+/*   Created: 2017/11/27 14:24:59 by gdanylov          #+#    #+#             */
+/*   Updated: 2017/11/27 14:24:59 by gdanylov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_print_numbers(void)
 {
-	char		*d;
-	const char	*s;
-	size_t		n;
-	size_t		dlen;
+	char i;
 
-	d = dst;
-	s = src;
-	n = size;
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = size - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s != '\0')
+	i = '0';
+	while (i <= '9')
 	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
+		ft_putchar(i);
+		i++;
 	}
-	*d = '\0';
-	return (dlen + (s - src));
 }

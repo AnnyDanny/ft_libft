@@ -18,8 +18,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	void		*newcontent;
 	size_t		newcontent_size;
 
-	vika = (t_list *)malloc(sizeof(t_list));
-	if (!vika)
+	if (!(vika = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	if (!content)
 	{

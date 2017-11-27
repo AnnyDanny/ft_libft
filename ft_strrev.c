@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdanylov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 20:55:42 by gdanylov          #+#    #+#             */
-/*   Updated: 2017/11/10 20:55:42 by gdanylov         ###   ########.fr       */
+/*   Created: 2017/11/27 14:32:07 by gdanylov          #+#    #+#             */
+/*   Updated: 2017/11/27 14:32:07 by gdanylov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	ft_strrev(char *str)
 {
-	char		*d;
-	const char	*s;
-	size_t		n;
-	size_t		dlen;
+	int i;
+	int j;
+	char s;
 
-	d = dst;
-	s = src;
-	n = size;
-	while (n-- != 0 && *d != '\0')
-		d++;
-	dlen = d - dst;
-	n = size - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s != '\0')
+	i = 0;
+	j = ft_strlen(str) - 1;
+	while (i < j)
 	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
+		s = str[i];
+		str[i] = str[j];
+		str[j] = s;
+		i++;
+		j--;
 	}
-	*d = '\0';
-	return (dlen + (s - src));
+	return (*str);
+}
+
+int main()
+{
+	char *a;
+	a = "abcd";
+	printf("%c\n", ft_strrev(a));
+	return (0);
 }
