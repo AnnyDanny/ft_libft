@@ -28,7 +28,6 @@ void				ft_print_numbers(void);
 void				ft_is_negative(int n);
 int					ft_countstrclen(char *str, int c);
 void				ft_swap(int *a, int *b);
-int					ft_iterative_factorial(int nb);
 int					ft_sqrt(int b);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void(*del)(void*, size_t));
